@@ -76,19 +76,10 @@ WSGI_APPLICATION = 'roleta.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'scary_nap_comic_736827',
-        'USER': 'uyx0dgxuws9',
-        'PASSWORD': 'XmqyZOpSd7Ew',  # Ensure this is correct
-        'HOST': 'ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, "db.sqlite3"),  # Updated to use os.path.join
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -139,31 +130,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'from@gmail.com'  # this email will be used to send emails
-EMAIL_HOST_PASSWORD = 'xyz'          # host email password required
-EMAIL_RECEIVING_USER = ['to@gmail.com']  # email on which you will receive messages sent from website
+EMAIL_HOST_USER = 'from@gmail.com'  
 
-# Logging configuration
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
-
-# settings.py
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
