@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ecom', '0001_initial'),
+        ('roleta', '0001_initial'),
     ]
 
     operations = [

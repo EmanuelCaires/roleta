@@ -321,7 +321,7 @@ def send_feedback_view(request):
         feedbackForm = forms.FeedbackForm(request.POST)
         if feedbackForm.is_valid():
             feedbackForm.save()
-            return render(request, 'ecom/feedback_sent.html')
+            return render(request, 'roleta/feedback_sent.html')
     return render(request, 'roleta/send_feedback.html', {'feedbackForm':feedbackForm})
 
 
@@ -380,7 +380,7 @@ def customer_address_view(request):
                     for p in products:
                         total=total+p.price
 
-            response = render(request, 'ecom/payment.html',{'total':total})
+            response = render(request, 'roleta/payment.html',{'total':total})
             response.set_cookie('email',email)
             response.set_cookie('mobile',mobile)
             response.set_cookie('address',address)
